@@ -1,1 +1,558 @@
-{"name":"Titanic Data Cleaning","uuid":"f8d4dd70-3276-4731-8197-06b89124ddd5","category":"Data Cleaning","description":"Data Wrangling on Titanic Dataset","parameters":"-","nodes":[{"id":"1","name":"DatasetStructured","description":"This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.","details":"This Node creates a DataFrame by reading data from HDFS, HIVE etc.\u003cbr\u003e\n\u003cbr\u003e\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.\u003cbr\u003e","examples":"","type":"dataset","nodeClass":"fire.nodes.dataset.NodeDatasetStructured","x":"63.9297px","y":"138.832px","fields":[{"name":"storageLevel","value":"DEFAULT","widget":"array","title":"Output Storage Level","description":"Storage Level of the Output Datasets of this Node","optionsArray":["DEFAULT","NONE","DISK_ONLY","DISK_ONLY_2","MEMORY_ONLY","MEMORY_ONLY_2","MEMORY_ONLY_SER","MEMORY_ONLY_SER_2","MEMORY_AND_DISK","MEMORY_AND_DISK_2","MEMORY_AND_DISK_SER","MEMORY_AND_DISK_SER_2","OFF_HEAP"],"required":false,"display":true,"editable":true,"disableRefresh":false},{"name":"dataset","value":"6fe6f5ec-5dca-453f-8f51-af31a96ebf63","widget":"dataset","title":"Dataset","description":"Selected Dataset","required":true,"display":true,"editable":true,"disableRefresh":false}],"engine":"scala"},{"id":"2","name":"DropRowsWithNull","description":"This node creates a new DataFrame by dropping rows containing null values","details":"","examples":"","type":"transform","nodeClass":"fire.nodes.etl.NodeDropRowsWithNull","x":"298.426px","y":"134.34px","fields":[{"name":"storageLevel","value":"DEFAULT","widget":"array","title":"Output Storage Level","description":"Storage Level of the Output Datasets of this Node","optionsArray":["DEFAULT","NONE","DISK_ONLY","DISK_ONLY_2","MEMORY_ONLY","MEMORY_ONLY_2","MEMORY_ONLY_SER","MEMORY_ONLY_SER_2","MEMORY_AND_DISK","MEMORY_AND_DISK_2","MEMORY_AND_DISK_SER","MEMORY_AND_DISK_SER_2","OFF_HEAP"],"required":false,"display":true,"editable":true,"disableRefresh":false}],"engine":"scala"},{"id":"4","name":"FilterByStringLength","description":"This node filters the Rows within the given string length. The column to be used for determining the string length is specified","details":"","examples":"","type":"transform","nodeClass":"fire.nodes.etl.NodeFilterByStringLength","x":"306.684px","y":"312.637px","fields":[{"name":"storageLevel","value":"DEFAULT","widget":"array","title":"Output Storage Level","description":"Storage Level of the Output Datasets of this Node","optionsArray":["DEFAULT","NONE","DISK_ONLY","DISK_ONLY_2","MEMORY_ONLY","MEMORY_ONLY_2","MEMORY_ONLY_SER","MEMORY_ONLY_SER_2","MEMORY_AND_DISK","MEMORY_AND_DISK_2","MEMORY_AND_DISK_SER","MEMORY_AND_DISK_SER_2","OFF_HEAP"],"required":false,"display":true,"editable":true,"disableRefresh":false},{"name":"inputCol","value":"Age","widget":"variable","title":"Input Column Name","description":"input column name","datatypes":["string"],"required":true,"display":true,"editable":true,"disableRefresh":false},{"name":"minLength","value":"1","widget":"textfield","title":"Minimum length","description":"Minimum length of String","datatypes":["int"],"required":true,"display":true,"editable":true,"disableRefresh":false},{"name":"maxLength","value":"99999","widget":"textfield","title":"Maximum length","description":"Maximum length of String","datatypes":["int"],"required":true,"display":true,"editable":true,"disableRefresh":false}],"engine":"scala"},{"id":"5","name":"Get Rows of Interest","description":"This node creates a new DataFrame containing only rows satisfying given condition","details":"This node creates a new DataFrame containing only rows satisfying the given condition.\u003cbr\u003e\n\u003cbr\u003e\n\u003ch2\u003eExamples of Conditional Expression\u003c/h2\u003e\n\u003cbr\u003e\ncol1 \u003e 5 AND col2 \u003e 3\u003cbr\u003e\n\u003cbr\u003e\nname is not NULL\u003cbr\u003e\n\u003cbr\u003e\nname is NULL\u003cbr\u003e\n\u003cbr\u003e\ndatetime \u003e \u00272011-01-01 00:00:00.0\u0027     (datetime column is of type timestamp)\u003cbr\u003e\n\u003cbr\u003e\ndatetime \u003e \u00272011-01-01 00:00:00.0\u0027 and datetime \u003c \u00272016-01-01 00:00:00.0\u0027\u003cbr\u003e","examples":"","type":"transform","nodeClass":"fire.nodes.etl.NodeRowFilter","x":"644.684px","y":"128.613px","fields":[{"name":"storageLevel","value":"DEFAULT","widget":"array","title":"Output Storage Level","description":"Storage Level of the Output Datasets of this Node","optionsArray":["DEFAULT","NONE","DISK_ONLY","DISK_ONLY_2","MEMORY_ONLY","MEMORY_ONLY_2","MEMORY_ONLY_SER","MEMORY_ONLY_SER_2","MEMORY_AND_DISK","MEMORY_AND_DISK_2","MEMORY_AND_DISK_SER","MEMORY_AND_DISK_SER_2","OFF_HEAP"],"required":false,"display":true,"editable":true,"disableRefresh":false},{"name":"conditionExpr","value":"Age \u003e 30 and Sex \u003d \u0027female\u0027","widget":"textarea_small","title":"Conditional Expression","description":"The filtering condition. Rows not satisfying given condition will be excluded from output DataFrame","required":false,"display":true,"editable":true,"disableRefresh":false}],"engine":"scala"},{"id":"6","name":"Convert Age to Int","description":"This node creates a new DataFrame by casting input columns with a new data type","details":"","examples":"","type":"transform","nodeClass":"fire.nodes.etl.NodeCastColumnType","x":"646.707px","y":"315.625px","fields":[{"name":"storageLevel","value":"DEFAULT","widget":"array","title":"Output Storage Level","description":"Storage Level of the Output Datasets of this Node","optionsArray":["DEFAULT","NONE","DISK_ONLY","DISK_ONLY_2","MEMORY_ONLY","MEMORY_ONLY_2","MEMORY_ONLY_SER","MEMORY_ONLY_SER_2","MEMORY_AND_DISK","MEMORY_AND_DISK_2","MEMORY_AND_DISK_SER","MEMORY_AND_DISK_SER_2","OFF_HEAP"],"required":false,"display":true,"editable":true,"disableRefresh":false},{"name":"inputCols","value":"[\"Age\"]","widget":"variables","title":"Columns","description":"Columns to be cast to new data type","required":false,"display":true,"editable":true,"disableRefresh":false},{"name":"outputColType","value":"INTEGER","widget":"array","title":"New Data Type","description":"New data type(INTEGER, DOUBLE, STRING, LONG, SHORT)","optionsArray":["BOOLEAN","BYTE","DATE","DECIMAL","DOUBLE","FLOAT","INTEGER","LONG","SHORT","STRING","TIMESTAMP"],"required":false,"display":true,"editable":true,"disableRefresh":false},{"name":"replaceExistingCols","value":"true","widget":"array","title":"Replace Existing Cols","description":"Whether to replace existing columns or create new ones","optionsArray":["true","false"],"required":false,"display":true,"editable":true,"disableRefresh":false}],"engine":"scala"},{"id":"7","name":"PrintNRows","description":"Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output","details":"","examples":"","type":"transform","nodeClass":"fire.nodes.util.NodePrintFirstNRows","x":"920.223px","y":"127.148px","fields":[{"name":"storageLevel","value":"DEFAULT","widget":"array","title":"Output Storage Level","description":"Storage Level of the Output Datasets of this Node","optionsArray":["DEFAULT","NONE","DISK_ONLY","DISK_ONLY_2","MEMORY_ONLY","MEMORY_ONLY_2","MEMORY_ONLY_SER","MEMORY_ONLY_SER_2","MEMORY_AND_DISK","MEMORY_AND_DISK_2","MEMORY_AND_DISK_SER","MEMORY_AND_DISK_SER_2","OFF_HEAP"],"required":false,"display":true,"editable":true,"disableRefresh":false},{"name":"title","value":"Row Values","widget":"textfield","title":"Title","required":false,"display":true,"editable":true,"disableRefresh":false},{"name":"n","value":"100","widget":"textfield","title":"Num Rows to Print","description":"number of rows to be printed","required":false,"display":true,"editable":true,"disableRefresh":false}],"engine":"scala"},{"id":"8","name":"Documentation","description":"Allows capturing Notes on the Workflow","details":"","examples":"","type":"doc","nodeClass":"fire.nodes.doc.NodeDocLarge","x":"446.988px","y":"524.898px","fields":[{"name":"storageLevel","value":"DEFAULT","widget":"array","title":"Output Storage Level","description":"Storage Level of the Output Datasets of this Node","optionsArray":["DEFAULT","NONE","DISK_ONLY","DISK_ONLY_2","MEMORY_ONLY","MEMORY_ONLY_2","MEMORY_ONLY_SER","MEMORY_ONLY_SER_2","MEMORY_AND_DISK","MEMORY_AND_DISK_2","MEMORY_AND_DISK_SER","MEMORY_AND_DISK_SER_2","OFF_HEAP"],"required":false,"display":true,"editable":true,"disableRefresh":false},{"name":"comment","value":"\u003ch1\u003e​Data Wrangling of Titanic Dataset\u003c/h1\u003e\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\u003ch2\u003e​This workflow shows how to wrangle the Titanic Dataset with Sparkflows.\u003c/h2\u003e\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\u003ch3\u003e​\u003cstrong\u003eThis workflow performs the following steps:\u003c/strong\u003e\u003c/h3\u003e\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\u003cul\u003e\u003cli\u003e​Reads the Titanic dataset.\u003c/li\u003e\u003cli\u003eDrops Rows containing Null values.\u003c/li\u003e\u003cli\u003eFilters the Rows for whom Age has not been specified.\u003c/li\u003e\u003cli\u003eChanges the data type of the Age column to integer.\u003c/li\u003e\u003cli\u003eFilters rows for persons of age \u0026gt; 30 and who are female.\u003c/li\u003e\u003c/ul\u003e","widget":"textarea_rich","title":"Comment","description":"Comments for the Workflow","required":false,"display":true,"editable":true,"disableRefresh":false}],"engine":"scala"}],"edges":[{"source":"1","target":"2","id":1},{"source":"4","target":"6","id":2},{"source":"6","target":"5","id":3},{"source":"2","target":"4","id":4},{"source":"5","target":"7","id":5}],"dataSetDetails":[{"id":15,"uuid":"6fe6f5ec-5dca-453f-8f51-af31a96ebf63","header":true,"path":"data/titanic_dat/train.tsv","delimiter":"\\t","datasetType":"CSV","filterLinesContaining":"PassengerId","datasetSchema":"{\"colNames\":[\"PassengerId\",\"Survived\",\"Pclass\",\"Name\",\"Sex\",\"Age\",\"SibSp\",\"Parch\",\"Ticket\",\"Fare\",\"Cabin\",\"Embarked\"],\"colTypes\":[\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"STRING\",\"DOUBLE\",\"STRING\",\"STRING\"],\"colFormats\":[],\"colMLTypes\":[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\"]}"}],"engine":"scala"}
+{
+  "name": "Titanic Data Cleaning",
+  "uuid": "f8d4dd70-3276-4731-8197-06b89124ddd5",
+  "category": "Data Cleaning",
+  "description": "Data Wrangling on Titanic Dataset",
+  "parameters": "-",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "DatasetStructured",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "63.9297px",
+      "y": "138.832px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "dataset",
+          "value": "6fe6f5ec-5dca-453f-8f51-af31a96ebf63",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "name": "DropRowsWithNull",
+      "description": "This node creates a new DataFrame by dropping rows containing null values",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDropRowsWithNull",
+      "x": "298.426px",
+      "y": "134.34px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "name": "FilterByStringLength",
+      "description": "This node filters the Rows within the given string length. The column to be used for determining the string length is specified.",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeFilterByStringLength",
+      "x": "306.684px",
+      "y": "312.637px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "inputCol",
+          "value": "Age",
+          "widget": "variable",
+          "title": "Input Column Name",
+          "description": "input column name",
+          "datatypes": [
+            "string"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "minLength",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Minimum length",
+          "description": "Minimum length of String",
+          "datatypes": [
+            "int"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "maxLength",
+          "value": "99999",
+          "widget": "textfield",
+          "title": "Maximum length",
+          "description": "Maximum length of String",
+          "datatypes": [
+            "int"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "Get Rows of Interest",
+      "description": "This node creates a new DataFrame containing the rows that satisfy the given condition",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeRowFilter",
+      "x": "644.684px",
+      "y": "128.613px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "conditionExpr",
+          "value": "Age \u003e 30 and Sex \u003d \u0027female\u0027",
+          "widget": "textarea_small",
+          "title": "Conditional Expression",
+          "description": "The filtering condition. Rows not satisfying given condition will be excluded from output DataFrame. eg: usd_pledged_real \u003e 0 and (category \u003d 1 or category \u003d\u003d 2) and goal \u003e 100",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "Convert Age to Int",
+      "description": "This node creates a new DataFrame by casting the specified input columns to a new data type",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeCastColumnType",
+      "x": "646.707px",
+      "y": "315.625px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"Age\"]",
+          "widget": "variables",
+          "title": "Columns",
+          "description": "Columns to be cast to new data type",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "outputColType",
+          "value": "INTEGER",
+          "widget": "array",
+          "title": "New Data Type",
+          "description": "New data type for the selected columns (INTEGER, DOUBLE, STRING, LONG, SHORT)",
+          "optionsArray": [
+            "BOOLEAN",
+            "BYTE",
+            "DATE",
+            "DECIMAL",
+            "DOUBLE",
+            "FLOAT",
+            "INTEGER",
+            "LONG",
+            "SHORT",
+            "STRING",
+            "TIMESTAMP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "replaceExistingCols",
+          "value": "true",
+          "widget": "array",
+          "title": "Replace Existing Cols?",
+          "description": "Whether to replace existing columns or create new ones?",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "7",
+      "name": "PrintNRows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "920.223px",
+      "y": "127.148px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "title",
+          "value": "Row Values",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "n",
+          "value": "100",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "8",
+      "name": "Documentation",
+      "description": "Allows capturing Notes on the Workflow",
+      "type": "doc",
+      "nodeClass": "fire.nodes.doc.NodeDocLarge",
+      "x": "446.988px",
+      "y": "524.898px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "comment",
+          "value": "\u003ch1\u003eâData Wrangling of Titanic Dataset\u003c/h1\u003e\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\u003ch2\u003eâThis workflow shows how to wrangle the Titanic Dataset with Sparkflows.\u003c/h2\u003e\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\u003ch3\u003eâ\u003cstrong\u003eThis workflow performs the following steps:\u003c/strong\u003e\u003c/h3\u003e\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\u003cul\u003e\u003cli\u003eâReads the Titanic dataset.\u003c/li\u003e\u003cli\u003eDrops Rows containing Null values.\u003c/li\u003e\u003cli\u003eFilters the Rows for whom Age has not been specified.\u003c/li\u003e\u003cli\u003eChanges the data type of the Age column to integer.\u003c/li\u003e\u003cli\u003eFilters rows for persons of age \u0026gt; 30 and who are female.\u003c/li\u003e\u003c/ul\u003e",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "9",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "692px",
+      "y": "392.986px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "width",
+          "value": "300px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "height",
+          "value": "110px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        },
+        {
+          "name": "comment",
+          "value": "",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "4",
+      "target": "6",
+      "id": 2
+    },
+    {
+      "source": "6",
+      "target": "5",
+      "id": 3
+    },
+    {
+      "source": "2",
+      "target": "4",
+      "id": 4
+    },
+    {
+      "source": "5",
+      "target": "7",
+      "id": 5
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 168,
+      "uuid": "6fe6f5ec-5dca-453f-8f51-af31a96ebf63",
+      "header": true,
+      "path": "data/titanic_dat/train.tsv",
+      "delimiter": "\\t",
+      "datasetType": "CSV",
+      "filterLinesContaining": "PassengerId",
+      "datasetSchema": "{\"colNames\":[],\"colTypes\":[],\"colFormats\":[],\"colMLTypes\":[]}"
+    }
+  ],
+  "engine": "scala"
+}
