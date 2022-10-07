@@ -1,1 +1,83 @@
-"{\"name\":\"testPipeline\",\"category\":\"\",\"description\":\"\",\"parameters\":\"\",\"nodes\":[{\"id\":\"1\",\"path\":\"/02-Code/\",\"name\":\"Bash Operator\",\"description\":\"This node executes the commands depends on selected trigger rule.\",\"details\":\"\",\"examples\":\"\",\"type\":\"bashOperator\",\"nodeClass\":\"fire.pipelineNodes.bashOperator\",\"x\":\"320px\",\"y\":\"161px\",\"fields\":[{\"name\":\"notes\",\"value\":\"\",\"widget\":\"textfield\",\"title\":\"Notes\",\"description\":\"Notes\",\"required\":false,\"display\":true,\"editable\":true,\"expandable\":false,\"disableRefresh\":false},{\"name\":\"Name\",\"value\":\"test\",\"widget\":\"textfield\",\"title\":\"Task Name\",\"description\":\"Name of the task in airflow dag and it should be unique in the dag.\",\"required\":true,\"display\":true,\"editable\":true,\"expandable\":false,\"disableRefresh\":false},{\"name\":\"trigger_rule\",\"value\":\"all_success\",\"widget\":\"array\",\"title\":\"Trigger Rule\",\"description\":\"trigger_rule\",\"optionsArray\":[\"all_success\",\"all_failed\",\"all_done\",\"all_skipped\",\"one_failed\",\"one_success\",\"none_failed\",\"none_failed_min_one_success\",\"none_skipped\",\"always\"],\"required\":true,\"display\":true,\"editable\":true,\"expandable\":false,\"disableRefresh\":false},{\"name\":\"shellCommand\",\"value\":\"echo Hello World\",\"widget\":\"shellcommand\",\"title\":\"shell Command\",\"description\":\"Shell Command to be executed.\",\"required\":true,\"display\":true,\"editable\":true,\"expandable\":false,\"disableRefresh\":false}]}],\"edges\":[]}"
+{
+  "name": "testPipeline",
+  "category": "",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/02-Code/",
+      "name": "Bash Operator",
+      "description": "This node executes the commands depends on selected trigger rule.",
+      "details": "",
+      "examples": "",
+      "type": "bashOperator",
+      "nodeClass": "fire.pipelineNodes.bashOperator",
+      "x": "533px",
+      "y": "299px",
+      "fields": [
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        },
+        {
+          "name": "Name",
+          "value": "bash",
+          "widget": "textfield",
+          "title": "Task Name",
+          "description": "Name of the task in airflow dag and it should be unique in the dag.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "trigger_rule",
+          "optionsArray": [
+            "all_success",
+            "all_failed",
+            "all_done",
+            "all_skipped",
+            "one_failed",
+            "one_success",
+            "none_failed",
+            "none_failed_min_one_success",
+            "none_skipped",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        },
+        {
+          "name": "shellCommand",
+          "value": "ls",
+          "widget": "shellcommand",
+          "title": "shell Command",
+          "description": "Shell Command to be executed.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        }
+      ]
+    }
+  ],
+  "edges": []
+}
