@@ -1,0 +1,91 @@
+{
+  "name": "workflowPipeline",
+  "category": "",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/08-Workflow/",
+      "name": "test222(schedule wf)",
+      "description": "This node allow user to select the workflows in a project to create pipeline.",
+      "details": "",
+      "examples": "",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "363px",
+      "y": "280px",
+      "fields": [
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        },
+        {
+          "name": "workflowUUID",
+          "value": "d57e5729-00db-4c86-b0d5-d90bc2a43614",
+          "widget": "workflow",
+          "title": "Workflow UUID",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "path": "/08-Workflow/",
+      "name": "test",
+      "description": "This node allow user to select the workflows in a project to create pipeline.",
+      "details": "",
+      "examples": "",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "458px",
+      "y": "300px",
+      "fields": [
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        },
+        {
+          "name": "workflowUUID",
+          "value": "a6bc5d1d-c87e-4ab1-820b-4c5262b7b7bc",
+          "widget": "workflow",
+          "title": "Workflow UUID",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    }
+  ]
+}
