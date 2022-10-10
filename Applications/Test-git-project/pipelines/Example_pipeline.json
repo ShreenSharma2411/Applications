@@ -1,0 +1,47 @@
+{
+  "name": "Example_pipeline",
+  "category": "",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/08-Workflow/",
+      "name": "Example_wf",
+      "description": "This node allow user to select the workflows in a project to create pipeline.",
+      "details": "",
+      "examples": "",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "177.987px",
+      "y": "105.99px",
+      "fields": [
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        },
+        {
+          "name": "workflowUUID",
+          "value": "a39fea3b-f36b-4502-9046-67c5e3e28dfd",
+          "widget": "workflow",
+          "title": "Workflow UUID",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        }
+      ]
+    }
+  ],
+  "edges": []
+}
