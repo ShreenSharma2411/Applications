@@ -9,8 +9,8 @@
       "description": "Dataset Node for reading Excel files",
       "type": "dataset",
       "nodeClass": "fire.nodes.dataset.NodeDatasetExcel",
-      "x": "466px",
-      "y": "300px",
+      "x": "340px",
+      "y": "203px",
       "fields": [
         {
           "name": "storageLevel",
