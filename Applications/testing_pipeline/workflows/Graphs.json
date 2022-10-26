@@ -209,8 +209,8 @@
       "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
       "type": "transform",
       "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
-      "x": "495px",
-      "y": "300px",
+      "x": "656px",
+      "y": "154px",
       "fields": [
         {
           "name": "storageLevel",
