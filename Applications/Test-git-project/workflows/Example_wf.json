@@ -1,12 +1,14 @@
 {
   "name": "Example_wf",
-  "uuid": "a39fea3b-f36b-4502-9046-67c5e3e28dfd",
+  "uuid": "b02c747b-98b3-4214-808f-7b2cbb44e625",
   "category": "-",
   "nodes": [
     {
       "id": "1",
       "name": "Read CSV",
       "description": "It reads in CSV files and creates a DataFrame from it",
+      "details": "",
+      "examples": "",
       "type": "dataset",
       "nodeClass": "fire.nodes.dataset.NodeDatasetCSV",
       "x": "139.99px",
@@ -177,6 +179,8 @@
       "id": "2",
       "name": "Print N Rows",
       "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "",
+      "examples": "",
       "type": "transform",
       "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
       "x": "405.987px",

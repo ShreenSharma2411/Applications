@@ -1,0 +1,9 @@
+{
+  "name": "Example_wf3",
+  "uuid": "2d3c744b-4b55-413d-b537-24e18068b477",
+  "category": "-",
+  "nodes": [],
+  "edges": [],
+  "dataSetDetails": [],
+  "engine": "scala"
+}
