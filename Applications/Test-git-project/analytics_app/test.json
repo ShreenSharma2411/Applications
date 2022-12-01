@@ -21,14 +21,6 @@
       "sequenceId": 1,
       "projectId": 0,
       "condition": ""
-    },
-    {
-      "id": 2607,
-      "name": "para2",
-      "stageType": "parameters",
-      "sequenceId": 2,
-      "projectId": 0,
-      "condition": ""
     }
   ],
   "executionType": "Workflow",
