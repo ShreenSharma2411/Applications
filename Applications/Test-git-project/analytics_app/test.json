@@ -1,9 +1,8 @@
 {
   "responseId": 0,
   "createdBy": 1,
-  "updatedBy": 0,
-  "dateLastUpdated": "Nov 30, 2022 8:12:53 PM",
-  "projectName": "Test-git-project",
+  "updatedBy": 1,
+  "dateLastUpdated": "Dec 1, 2022 3:06:34 PM",
   "appPermission": {
     "appsView": true,
     "appsModify": true,
@@ -11,7 +10,7 @@
   },
   "id": 2800,
   "name": "test",
-  "status": "ACTIVE",
+  "status": "saved",
   "category": "",
   "description": "",
   "appStages": [
@@ -20,6 +19,14 @@
       "name": "para1",
       "stageType": "parameters",
       "sequenceId": 1,
+      "projectId": 0,
+      "condition": ""
+    },
+    {
+      "id": 2607,
+      "name": "para2",
+      "stageType": "parameters",
+      "sequenceId": 2,
       "projectId": 0,
       "condition": ""
     }
