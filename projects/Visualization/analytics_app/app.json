@@ -1,0 +1,26 @@
+{
+  "responseId": 0,
+  "createdBy": 1,
+  "updatedBy": 1,
+  "dateLastUpdated": "Jan 19, 2023 5:25:47 PM",
+  "appPermission": {
+    "appsView": true,
+    "appsModify": true,
+    "appsExecute": true
+  },
+  "id": 2812,
+  "name": "app",
+  "status": "saved",
+  "category": "",
+  "description": "",
+  "appStages": [],
+  "executionType": "Workflow",
+  "projectId": 5045,
+  "executionId": 19088,
+  "jobName": "",
+  "notebookPath": "",
+  "uuid": "APP",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "usecase": "",
+  "syncedWithGithub": false
+}
