@@ -1,0 +1,17 @@
+{
+  "id": 5045,
+  "userId": 1,
+  "uuid": "VISUALIZATION_439",
+  "name": "Visualization",
+  "description": "Visualization Project",
+  "usersApplication": 1,
+  "gitBranch": "test",
+  "gitRootFolder": "/projects",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "tag": "VISUALIZATION_5045",
+  "gitRepoUrl": "https://github.com/ShreenSharma2411/Applications",
+  "createdBy": "admin",
+  "dateCreated": "Jan 19, 2023 11:40:03 AM",
+  "updatedBy": "admin",
+  "dateLastUpdated": "Jan 19, 2023 5:23:49 PM"
+}
