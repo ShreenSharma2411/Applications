@@ -267,15 +267,6 @@
       "id": 1
     }
   ],
-  "dataSetDetails": [
-    {
-      "id": 63,
-      "uuid": "b642369f-74b2-4d56-9498-e9a161ce036f",
-      "header": true,
-      "path": "data/glass.csv",
-      "datasetType": "CSV",
-      "datasetSchema": "{\"colNames\":[\"RI\",\"Na\",\"Mg\",\"Al\",\"Si\",\"K\",\"Ca\",\"Ba\",\"Fe\",\"Class\"],\"colTypes\":[\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"INTEGER\",\"DOUBLE\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}"
-    }
-  ],
+  "dataSetDetails": [],
   "engine": "scala"
 }

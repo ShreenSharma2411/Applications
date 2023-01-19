@@ -1109,17 +1109,6 @@
       "id": 6
     }
   ],
-  "dataSetDetails": [
-    {
-      "id": 388,
-      "uuid": "214c79ac-5c82-43f4-b988-5de07c2e0cda",
-      "header": true,
-      "path": "data/trips-subset.csv",
-      "delimiter": ",",
-      "datasetType": "CSV",
-      "filterLinesContaining": "passenger_count",
-      "datasetSchema": "{\"colNames\":[\"medallion\",\"hack_license\",\"vendor_id\",\"rate_code\",\"store_and_fwd_flag\",\"pickup_datetime\",\"dropoff_datetime\",\"passenger_count\",\"trip_time_in_secs\",\"trip_distance\",\"pickup_longitude\",\"pickup_latitude\",\"dropoff_longitude\",\"dropoff_latitude\"],\"colTypes\":[\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"TIMESTAMP\",\"TIMESTAMP\",\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"dd/MM/yyyy HH:mm\",\"dd/MM/yyyy HH:mm\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}"
-    }
-  ],
+  "dataSetDetails": [],
   "engine": "scala"
 }
