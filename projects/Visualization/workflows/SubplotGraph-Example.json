@@ -274,7 +274,7 @@
       "id": "26",
       "name": "Housing data",
       "description": "It reads in CSV files and creates a DataFrame from it",
-      "details": "This node reads CSV files and creates a DataFrame from it.\u003cbr\u003e",
+      "details": "\u003ch2\u003eRead CSV Details\u003c/h2\u003e\n\u003cbr\u003e\nThis node reads CSV files and creates a DataFrame from it. It can read either from a single file, or a directory containing multiple files. The user can configure the below fields to parse the file.\u003cbr\u003e\n\u003cbr\u003e\nThe user can choose the \u003cb\u003eOutput storage level\u003c/b\u003e from the drop down. The options in the dropdown can be one of the following:\u003cbr\u003e\n\u003cul\u003e\n\u003cli\u003e \u003cb\u003eMEMORY_ONLY\u003c/b\u003e          Store RDD as deserialized Java objects in the JVM. If the RDD does not fit in memory, some partitions will not be cached and will be recomputed on the fly each time they qre needed. This is the default level.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003eMEMORY_AND_DISK\u003c/b\u003e       Store RDD as deserialized Java objects in the JVM. If the RDD does not fit in memory, store the partitions that do nott fit on disk, and read them from there when they are needed.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003eMEMORY_ONLY_SER\u003c/b\u003e        Store RDD as serialized Java objects (one byte array per partition). This is generally more space-efficient than deserialized objects, especially when using a fast serializer, but more CPU-intensive to read.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003eMEMORY_AND_DISK_SER\u003c/b\u003e    Similar to MEMORY_ONLY_SER, but spill partitions that do not fit in memory to disk instead of recomputing them on the fly each time they\u0027re needed.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003eDISK_ONLY\u003c/b\u003e              Store the RDD partitions only on disk.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003eMEMORY_ONLY_2, MEMORY_AND_DISK_2 others \u003c/b\u003e . Same as the levels above, but replicate each partition on two cluster nodes.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003eOFF_HEAP\u003c/b\u003e               Similar to MEMORY_ONLY_SER, but store the data in off-heap memory. This requires off-heap memory to be enabled.\u003c/li\u003e\n\u003c/ul\u003e\nThe user need to provide a data file \u003cb\u003ePath\u003c/b\u003e to read the data from. This is a required field.\u003cbr\u003e\n\u003cbr\u003e\nThe user can choose the \u003cb\u003eSeperator\u003c/b\u003e used in the data file to parse it. The default seperator is \u003cb\u003e( , )\u003c/b\u003e comma.\u003cbr\u003e\n\u003cbr\u003e\nIn the \u003cb\u003eHeader\u003c/b\u003e field, one can choose:\u003cbr\u003e\n\u003cul\u003e\n\u003cli\u003e \u003cb\u003etrue\u003c/b\u003e if the data file has header.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003efalse\u003c/b\u003e Otherwise.\u003c/li\u003e\n\u003c/ul\u003e\nIn the \u003cb\u003eDrop special character in column name\u003c/b\u003e field, one can choose:\u003cbr\u003e\n\u003cul\u003e\n\u003cli\u003e \u003cb\u003etrue\u003c/b\u003e If you want to remove the special characters from column names.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003efalse\u003c/b\u003e Otherwise.\u003c/li\u003e\n\u003c/ul\u003e\nIn the \u003cb\u003eMode\u003c/b\u003e field, one can choose from the below options in the dropdown:\u003cbr\u003e\n\u003cul\u003e\n\u003cli\u003e \u003cb\u003ePERMISSIVE\u003c/b\u003e When the parser meets a corrupt field in a records, it sets the value of the field to NULL and continues to the next record.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003eDROPMALFORMED\u003c/b\u003e ignores the whole corrupted records.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003eFAILFAST\u003c/b\u003e throws an exception when it meets corrupted records.\u003c/li\u003e\n\u003c/ul\u003e\nIn the \u003cb\u003eEnforce Schema\u003c/b\u003e field, one can choose:\u003cbr\u003e\n\u003cul\u003e\n\u003cli\u003e \u003cb\u003etrue\u003c/b\u003e The specified or inferred schema will be forcibly applied to datasource files, and headers in CSV files will be ignored.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003efalse\u003c/b\u003e The schema will be validated against all headers in CSV files in the case when the header option is set to \u003cb\u003efalse\u003c/b\u003e.\u003c/li\u003e\n\u003c/ul\u003e\nIn the \u003cb\u003eWhether to add input file as a column in dataframe\u003c/b\u003e field, one can choose:\u003cbr\u003e\n\u003cul\u003e\n\u003cli\u003e \u003cb\u003etrue\u003c/b\u003e There will be a new column added in the dataframe at the end which can be seen in the schema columns. One can enter the name of this column.\u003c/li\u003e\n\u003cli\u003e \u003cb\u003efalse\u003c/b\u003e This functionality is disabled and the dataframe consists of only the columns read from the data file.\u003c/li\u003e\n\u003c/ul\u003e\nIn the \u003cb\u003eENCODING\u003c/b\u003e field one can specify the encoding type to be used for reading the files. By default it is set as \u003cb\u003eUTF-8\u003c/b\u003e.\u003cbr\u003e\n\u003cbr\u003e\nThe \u003cb\u003eQUOTE\u003c/b\u003e field sets a single character used for escaping quoted values where the separator can be part of the value. The default value for this is \u003cb\u003e( \" )\u003c/b\u003e, a double quote.\u003cbr\u003e\n\u003cbr\u003e\nThe \u003cb\u003eESCAPE\u003c/b\u003e field sets a single character used for escaping quotes inside an already quoted value. The default value for this is \u003cb\u003e( \\ )\u003c/b\u003e, a backslash.\t\u003cbr\u003e\n\u003cbr\u003e\nAfter the above options are set, one can click on \u003cb\u003eRefresh Schema\u003c/b\u003e to see the final columns.\u003cbr\u003e\nUsers can still add or delete columns using \u003cb\u003e+\u003c/b\u003e button next to theRefresh schema and \u003cb\u003e-\u003c/b\u003e button next to the column names.\u003cbr\u003e",
       "examples": "",
       "type": "dataset",
       "nodeClass": "fire.nodes.dataset.NodeDatasetCSV",
@@ -314,7 +314,7 @@
           "value": "data/housing.csv",
           "widget": "textfield",
           "title": "Path",
-          "description": "Path of the Text file/directory",
+          "description": "Path of the file/directory",
           "required": true,
           "display": true,
           "editable": true,
@@ -338,7 +338,7 @@
           "value": "true",
           "widget": "array",
           "title": "Header",
-          "description": "Does the file have a header row",
+          "description": "Whether the file has a header row",
           "optionsArray": [
             "true",
             "false"
@@ -350,15 +350,100 @@
           "expandable": false
         },
         {
-          "name": "dropMalformed",
+          "name": "dropSpecialCharacterInColumnName",
           "value": "true",
           "widget": "array",
-          "title": "Drop Malformed",
-          "description": "Whether to drop Malformed records or error",
+          "title": "Drop Special Character In ColumnName",
+          "description": "Whether to drop the Special Characters and Spaces in Column Name.",
           "optionsArray": [
             "true",
             "false"
           ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "mode",
+          "value": "PERMISSIVE",
+          "widget": "array",
+          "title": "Mode",
+          "description": "Mode for dealing with corrupt records during parsing.",
+          "optionsArray": [
+            "PERMISSIVE",
+            "DROPMALFORMED",
+            "FAILFAST"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "enforceSchema",
+          "value": "false",
+          "widget": "array",
+          "title": "Enforce Schema",
+          "description": "If it is set to true, the specified or inferred schema will be forcibly applied to datasource files, and headers in CSV files will be ignored. If the option is set to false, the schema will be validated against all headers in CSV files in the case when the header option is set to true.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "addInputFileName",
+          "value": "false",
+          "widget": "array",
+          "title": "Whether to add Input File Name as a column in the Dataframe",
+          "description": "Add the new field:input_file_name",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "encoding",
+          "value": "UTF-8",
+          "widget": "textfield",
+          "title": "Encoding",
+          "description": "Decodes the CSV files by the given encoding type",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "quote",
+          "value": "\"",
+          "widget": "textfield",
+          "title": "Quote",
+          "description": "Sets a single character used for escaping quoted values where the separator can be part of the value",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "escape",
+          "value": "\\",
+          "widget": "textfield",
+          "title": "Escape",
+          "description": "Sets a single character used for escaping quotes inside an already quoted value.",
           "required": false,
           "display": true,
           "editable": true,
@@ -407,7 +492,7 @@
     {
       "id": "28",
       "name": "Graph SubPlots",
-      "details": "",
+      "details": "\u003ch2\u003eGraph SubPlots Details\u003c/h2\u003e\n\u003cbr\u003e\nSubplots let you place several plots beside each other on a grid, Subplots are helpful when you want to show different data presentation in a single view, for instance Dashboards.\u003cbr\u003e\n\u003cbr\u003e\nEach Graph can be configured separately in terms of data columns and GraphTypes.\u003cbr\u003e\n\u003cbr\u003e\n\u003ch4\u003eInput Parameters\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e OUTPUT STORAGE LEVEL : Keep this as DEFAULT.\u003c/li\u003e\n\u003cli\u003e TITLE : The title of a graph can be set here.\u003c/li\u003e\n\u003cli\u003e MAX VALUES TO DISPLAY : The total number of data points to be selected in the graph output.\u003c/li\u003e\n\u003cli\u003e CHART COLORS : Select the color palette to be used for data visualization.\u003c/li\u003e\n\u003cli\u003e VARIABLES: Define the individual plots that are to be created\u003c/li\u003e\n\u003cli\u003e    X-Columns : Select the column to be used on the horizontal axis.\u003c/li\u003e\n\u003cli\u003e    Y-Columns : Select the column to be used for the vertical axis.\u003c/li\u003e\n\u003cli\u003e    GraphTypes : Select the type of graph to be used for data visualization.\u003c/li\u003e\n\u003cli\u003e    X Labels : Enter the description of the horizontal axis.\u003c/li\u003e\n\u003cli\u003e    Y Labels : Enter the description of the vertical axis.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e List of GraphTypes:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e   Bar Chart\u003c/li\u003e\n\u003cli\u003e   Column Chart\u003c/li\u003e\n\u003cli\u003e   Dual Line Chart\u003c/li\u003e\n\u003cli\u003e   Line Chart\u003c/li\u003e\n\u003cli\u003e   Pie Chart\u003c/li\u003e\n\u003cli\u003e   Scatter Chart\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e When to use SubPlots\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e   This node is useful for displaying dense information in data visualization. Subplots fit multiple plots on the same figure.\u003c/li\u003e\n\u003cli\u003e   This is good for comparison: aligning comparable attributes, and columns side by side for convenient visualization.\u003c/li\u003e\n\u003cli\u003e   It gives us a sense of how comparable data attributes vary, sometimes with the same horizontal axis and scale.\u003c/li\u003e\n\u003c/ul\u003e",
       "examples": "",
       "type": "transform",
       "nodeClass": "fire.nodes.graph.NodeGraphSubPlots",
