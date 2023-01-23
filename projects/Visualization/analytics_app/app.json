@@ -1,9 +1,8 @@
 {
   "responseId": 0,
   "createdBy": 0,
-  "updatedBy": 0,
-  "dateLastUpdated": "Jan 20, 2023 10:16:34 PM",
-  "projectName": "Visualization",
+  "updatedBy": 1,
+  "dateLastUpdated": "Jan 23, 2023 10:59:30 AM",
   "appPermission": {
     "appsView": true,
     "appsModify": true,
@@ -11,10 +10,21 @@
   },
   "id": 2813,
   "name": "app",
-  "status": "ACTIVE",
+  "status": "saved",
   "category": "",
   "description": "",
-  "appStages": [],
+  "appStages": [
+    {
+      "id": 2651,
+      "name": "run",
+      "status": "COMPLETED",
+      "stageType": "run",
+      "stageDetails": "",
+      "sequenceId": 1,
+      "projectId": 0,
+      "condition": ""
+    }
+  ],
   "executionType": "Workflow",
   "projectId": 5046,
   "executionId": 19088,
