@@ -1,12 +1,12 @@
 {
-  "name": "pipelines",
-  "uuid": "62202239-c31f-43b3-af21-f82b3116a376",
+  "name": "testemr",
+  "uuid": "e8c05239-bf8d-41da-b84f-00f794fda584",
   "category": "",
   "description": "",
   "parameters": "",
   "nodes": [
     {
-      "id": "4",
+      "id": "1",
       "path": "/03-EMR/",
       "name": "Create EMR JobFlow",
       "description": "This node creates a new EMR JobFlow by using details in configuration and passes the EMR ID to the next step.",
@@ -14,8 +14,8 @@
       "examples": "",
       "type": "emr",
       "nodeClass": "fire.pipelineNodes.EMR",
-      "x": "285.8px",
-      "y": "163.8px",
+      "x": "254.111px",
+      "y": "324.111px",
       "fields": [
         {
           "name": "notes",
@@ -31,7 +31,7 @@
         },
         {
           "name": "Name",
-          "value": "emr_2",
+          "value": "createemr",
           "widget": "textfield",
           "title": "Task Name",
           "description": "Unique name of the task in airflow DAG.",
@@ -43,7 +43,7 @@
         },
         {
           "name": "ReleaseLabel",
-          "value": "emr-6.7.0",
+          "value": "emr-6.2.0",
           "widget": "textfield",
           "title": "Release Label",
           "description": "ReleaseLabel like emr-6.2.0 ,emr-6.2.1, emr-6.3.0 etc",
@@ -150,7 +150,7 @@
         },
         {
           "name": "Ec2KeyName",
-          "value": "IHDP-Core-Dev",
+          "value": "sf",
           "widget": "textfield",
           "title": "EC2 Key Name",
           "description": "EC2 Key Name",
@@ -218,7 +218,7 @@
         },
         {
           "name": "EmrManagedMasterSecurityGroup",
-          "value": "sg-80f189f6",
+          "value": "sg-06f134b77406cf93b",
           "widget": "textfield",
           "title": "EMR Managed Master SecurityGroup",
           "description": "Parameter to specify a custom managed security group for the master instance",
@@ -230,7 +230,7 @@
         },
         {
           "name": "EmrManagedSlaveSecurityGroup",
-          "value": "sg-06f134b77406cf93b",
+          "value": "sg-0469690a2e579fc32",
           "widget": "textfield",
           "title": "EMR Managed Slave SecurityGroup",
           "description": "Parameter to specify a custom managed security group for core and task instances",
@@ -242,7 +242,7 @@
         },
         {
           "name": "InstanceGroups",
-          "value": "[{\"Name\":\"Master\",\"Market\":\"ON_DEMAND\",\"InstanceRole\":\"MASTER\",\"InstanceType\":\"c5.4xlarge\",\"InstanceCount\":1,\"EbsVolumeSizeInGB\":\"\",\"EbsVolumeType\":\"\",\"EbsVolumesPerInstance\":\"\"},{\"Name\":\"Slave\",\"Market\":\"ON_DEMAND\",\"InstanceRole\":\"CORE\",\"InstanceType\":\"c5.4xlarge\",\"InstanceCount\":1,\"EbsVolumeSizeInGB\":\"\",\"EbsVolumeType\":\"\",\"EbsVolumesPerInstance\":\"\"}]",
+          "value": "[{\"Name\":\"Master\",\"Market\":\"ON_DEMAND\",\"InstanceRole\":\"MASTER\",\"InstanceType\":\"m4.4xlarge\",\"InstanceCount\":1,\"EbsVolumeSizeInGB\":\"\",\"EbsVolumeType\":\"\",\"EbsVolumesPerInstance\":\"\"},{\"Name\":\"Slave\",\"Market\":\"ON_DEMAND\",\"InstanceRole\":\"CORE\",\"InstanceType\":\"m4.xlarge\",\"InstanceCount\":1,\"EbsVolumeSizeInGB\":\"\",\"EbsVolumeType\":\"\",\"EbsVolumesPerInstance\":\"\"}]",
           "widget": "variablesList",
           "title": "Instance Groups",
           "description": "InstanceRole: Instance group role in the cluster, InstanceType: EC2 instance type, InstanceCount:Actual count of running instances,VolumeSpecification: Volume Specification,VolumesPerInstance: Volumes Per Instance",
@@ -275,7 +275,7 @@
         },
         {
           "name": "BootstrapActions",
-          "value": "[{\"Name\":\"bootstrap-set-region\",\"ScriptBootstrapAction\":\"s3://enterprise-datalake-development-us-east-1/IHDP-Core/Normalization/BootstrapScripts/AWS_Set_Region.sh\"}]",
+          "value": "[]",
           "widget": "variablesList",
           "title": "Bootstrap Actions",
           "description": "ScriptBootstrapAction: Instance group role in the cluster",
@@ -302,7 +302,7 @@
         },
         {
           "name": "Tags",
-          "value": "[{\"Key\":\"APP_ID\",\"Value\":\"APP_ID\"}]",
+          "value": "[{\"Key\":\"COST_CENTER\",\"Value\":\"30025\"},{\"Key\":\"BUSINESS_AREA\",\"Value\":\"HDC\"}]",
           "widget": "variablesList",
           "title": "Tags",
           "description": "key: Tag Key,Value: Tag Value",
@@ -336,7 +336,7 @@
       ]
     },
     {
-      "id": "5",
+      "id": "2",
       "path": "/03-EMR/",
       "name": "Add Step EMR JobFlow",
       "description": "This node adds steps to an existing EMR job flow and executes the arguments as one command using command-runner.jar",
@@ -344,7 +344,7 @@
       "examples": "",
       "type": "addStep",
       "nodeClass": "fire.pipelineNodes.addStep",
-      "x": "548px",
+      "x": "538px",
       "y": "300px",
       "fields": [
         {
@@ -361,7 +361,7 @@
         },
         {
           "name": "Name",
-          "value": "step1",
+          "value": "emr_step1",
           "widget": "textfield",
           "title": "Task Name",
           "description": "Unique name of the task in Airflow DAG",
@@ -430,8 +430,8 @@
   ],
   "edges": [
     {
-      "source": "4",
-      "target": "5",
+      "source": "1",
+      "target": "2",
       "id": 1
     }
   ]

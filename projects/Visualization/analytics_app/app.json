@@ -1,8 +1,9 @@
 {
   "responseId": 0,
-  "createdBy": 0,
-  "updatedBy": 1,
-  "dateLastUpdated": "Jan 23, 2023 10:59:30 AM",
+  "createdBy": 1,
+  "updatedBy": 0,
+  "dateLastUpdated": "Jan 23, 2023 11:08:31 AM",
+  "projectName": "Visualization",
   "appPermission": {
     "appsView": true,
     "appsModify": true,
@@ -10,12 +11,12 @@
   },
   "id": 2813,
   "name": "app",
-  "status": "saved",
+  "status": "ACTIVE",
   "category": "",
   "description": "",
   "appStages": [
     {
-      "id": 2651,
+      "id": 2654,
       "name": "run",
       "status": "COMPLETED",
       "stageType": "run",
