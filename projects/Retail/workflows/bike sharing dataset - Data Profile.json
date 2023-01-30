@@ -1,0 +1,165 @@
+{
+  "name": "bike sharing dataset - Data Profile",
+  "uuid": "512be0d0-dff8-4102-ac85-51afe4d27b63",
+  "category": "Data Profiling",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "dbfs:/shreenTest/Bike.Sharing.dataset.1.csv",
+      "name": "DatasetStructured",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "79.000px",
+      "y": "250.984px",
+      "fields": [
+        {
+          "name": "dataset",
+          "value": "838afa9d-47d7-4abd-a8aa-0aece9bf5a9b",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "name": "DropRowsWithNull",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDropRowsWithNull",
+      "x": "266.496px",
+      "y": "416.734px",
+      "fields": [],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "name": "Summary",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeSummary",
+      "x": "502.496px",
+      "y": "120.734px",
+      "fields": [
+        {
+          "name": "colNames",
+          "value": "[]",
+          "widget": "variables",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "name": "NullValuesInColumn",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeNullValuesInColumn",
+      "x": "502.496px",
+      "y": "257.734px",
+      "fields": [
+        {
+          "name": "inputCols",
+          "value": "[\"C0\"]",
+          "widget": "variables",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "Correlation",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeCorrelation",
+      "x": "504.496px",
+      "y": "417.734px",
+      "fields": [
+        {
+          "name": "inputCols",
+          "value": "[]",
+          "widget": "variables",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "ColumnsCardinality",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeColumnsCardinality",
+      "x": "504.496px",
+      "y": "517.734px",
+      "fields": [
+        {
+          "name": "inputCols",
+          "value": "[\"C0\"]",
+          "widget": "variables",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "3",
+      "id": 1
+    },
+    {
+      "source": "1",
+      "target": "4",
+      "id": 2
+    },
+    {
+      "source": "1",
+      "target": "2",
+      "id": 3
+    },
+    {
+      "source": "2",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "1",
+      "target": "6",
+      "id": 5
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 5029,
+      "uuid": "838afa9d-47d7-4abd-a8aa-0aece9bf5a9b",
+      "header": false,
+      "path": "dbfs:/shreenTest/Bike.Sharing.dataset.1.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{colNames:[\"C0\"],colTypes:[\"STRING\"],colFormats:[\"\"],colMLTypes:[\"TEXT\"]}"
+    }
+  ],
+  "engine": "scala",
+  "workflowType": "DataProfiling"
+}

@@ -1,0 +1,17 @@
+{
+  "id": 5057,
+  "userId": 1,
+  "uuid": "RETAIL",
+  "name": "Retail",
+  "description": "Retail Project",
+  "usersApplication": 0,
+  "gitBranch": "30-jan-2023",
+  "gitRootFolder": "/projects",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "tag": "RETAIL_5057",
+  "gitRepoUrl": "https://github.com/ShreenSharma2411/Applications",
+  "createdBy": "admin",
+  "dateCreated": "Jan 30, 2023 3:50:07 PM",
+  "updatedBy": "admin",
+  "dateLastUpdated": "Jan 30, 2023 3:52:54 PM"
+}
